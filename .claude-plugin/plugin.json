@@ -1,0 +1,19 @@
+{
+  "name": "cerino",
+  "displayName": "Cerino",
+  "version": "1.0.0",
+  "description": "Cerino is your company brain, the human-approved source of truth for how your business operates. This plugin connects Claude to it and adds three skills. Claude answers from what your team approved and links each source, a short owner interview builds the Brain, and a quick pass shows what is waiting for review. Claude proposes, and a person approves in Cerino.",
+  "author": {
+    "name": "Cerino",
+    "email": "support@cerino.ai",
+    "url": "https://cerino.ai"
+  },
+  "homepage": "https://cerino.ai/docs/mcp",
+  "repository": "https://github.com/consciens/cerino-plugin",
+  "license": "MIT",
+  "keywords": ["company knowledge", "decisions", "governance", "knowledge management", "approvals", "productivity"],
+  "icon": "./.claude-plugin/icon.png",
+  "documentationUrl": "https://cerino.ai/docs/mcp",
+  "privacyPolicyUrl": "https://cerino.ai/privacy",
+  "termsOfServiceUrl": "https://cerino.ai/terms"
+}

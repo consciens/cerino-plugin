@@ -1,0 +1,22 @@
+{
+  "name": "cerino",
+  "owner": {
+    "name": "Cerino",
+    "email": "support@cerino.ai",
+    "url": "https://cerino.ai"
+  },
+  "metadata": {
+    "description": "Cerino for Claude, the connection to your company brain and the skills to use it well."
+  },
+  "plugins": [
+    {
+      "name": "cerino",
+      "source": "./",
+      "description": "Cerino is your company brain, the human-approved source of truth for how your business operates. Claude answers from what your team approved, links each source, and proposes new knowledge for a person to approve in Cerino.",
+      "homepage": "https://cerino.ai/docs/mcp",
+      "repository": "https://github.com/consciens/cerino-plugin",
+      "license": "MIT",
+      "category": "productivity"
+    }
+  ]
+}

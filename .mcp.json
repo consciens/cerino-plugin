@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "cerino": {
+      "type": "http",
+      "url": "https://mcp.cerino.ai/mcp"
+    }
+  }
+}
