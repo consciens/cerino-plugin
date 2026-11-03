@@ -8,7 +8,7 @@ description: Use when Cerino is connected and the user asks about their own comp
 Cerino is the company's Brain: its approved record of decisions, definitions,
 processes and facts. Every entry in it was approved by a named person (Cerino's
 tools call an entry a "memory"; with the user, prefer "the Brain", "approved
-knowledge" or "an entry", so it is not confused with Claude's own memory).
+knowledge" or "an entry", so it is not confused with the assistant's own memory).
 This skill is how to use it well. The rules Cerino's server sends on
 connection come first; if anything here differs from them, follow the server.
 
@@ -16,8 +16,8 @@ connection come first; if anything here differs from them, follow the server.
 
 The Cerino tools must be available (they come from the connection at
 `https://mcp.cerino.ai/mcp`). If they are not, say so plainly and point the
-user to connect Cerino, from this plugin's Connectors tab in Claude or with
-`/mcp` in Claude Code; do not answer company questions as though you had
+user to connect Cerino, from the assistant's connectors or apps settings, or
+with `/mcp` in Claude Code; do not answer company questions as though you had
 checked.
 
 ## Answering a question about the company

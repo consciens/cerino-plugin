@@ -144,3 +144,18 @@ words; where the two ever differ, the server's wording stands.
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+## ChatGPT
+
+The same repository is the ChatGPT plugin package, in the Agent Plugins
+format: `plugin.json` (listing, review test cases and publication, under
+`extensions.com.openai`), `mcp.json` (the same server), `skills/` and
+`assets/`. Build the upload with:
+
+```bash
+zip -X -r cerino-chatgpt-plugin.zip plugin.json mcp.json skills assets LICENSE
+```
+
+`.claude-plugin/` and `.mcp.json` are Claude's and stay out of the ZIP.
+Reviewer credentials and the demo video URL are entered in OpenAI's
+dashboard, never in this repository.

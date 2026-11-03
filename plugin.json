@@ -1,0 +1,112 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cerino",
+  "version": "1.0.0",
+  "description": "Cerino is your company brain, the human-approved source of truth for how your business operates. Your assistant answers from what your team approved and links each source, proposes new knowledge for a person to approve in Cerino, and shows what is waiting for review.",
+  "author": {
+    "name": "Cerino",
+    "email": "support@cerino.ai",
+    "url": "https://cerino.ai"
+  },
+  "homepage": "https://cerino.ai/docs/mcp",
+  "repository": "https://github.com/consciens/cerino-plugin",
+  "license": "MIT",
+  "keywords": [
+    "company knowledge",
+    "decisions",
+    "governance",
+    "knowledge management",
+    "approvals",
+    "productivity"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Cerino",
+        "shortDescription": "Your company brain, approved",
+        "longDescription": "Most of what a company knows lives in a few people's heads. It's why a price is what it is, how a job gets quoted, and who to call when a delivery slips. Cerino turns that tribal knowledge into a company brain your whole team, and ChatGPT, can rely on.\n\nEvery entry in the Brain is a decision, definition, process, policy, commitment or fact that a named person approved. Connect Cerino and ChatGPT answers from that record. It tells you how your company actually does things, links each source and names who signed off on it, and keeps all of it apart from general knowledge. ChatGPT can also look up the people, clients, projects and systems you work with, read your documents, and show your goals, open issues and what is waiting for review.\n\nWhen a conversation turns up something worth keeping, such as a decision, a new client contact or a better way to run a process, ChatGPT can propose it to Cerino when you ask. Proposals wait in Cerino's Inbox until an owner or manager approves them. This connection cannot approve anything itself, which is what keeps the Brain worth trusting.\n\nBuilt for companies that run on tribal knowledge and want their AI assistant to use it. Access is through a Cerino workspace, and you sign in with Google.",
+        "developerName": "Cerino",
+        "category": "Productivity",
+        "capabilities": [
+          "Answer from approved company knowledge, with sources",
+          "Look up people, clients, projects and systems",
+          "Search and read company documents",
+          "Show goals, open issues and what is waiting for review",
+          "Propose new or corrected knowledge for a person to approve"
+        ],
+        "websiteURL": "https://cerino.ai",
+        "supportURL": "https://cerino.ai/docs/mcp",
+        "privacyPolicyURL": "https://cerino.ai/privacy",
+        "termsOfServiceURL": "https://cerino.ai/terms",
+        "defaultPrompt": [
+          "What has our company decided about pricing?",
+          "What is waiting for review in Cerino?",
+          "Interview me to build our company brain in Cerino."
+        ],
+        "brandColor": "#00225D",
+        "brandColorDark": "#6CAAFF",
+        "composerIcon": "./assets/logo.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/cerino-onboarding/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Answer from the approved record, with sources",
+              "prompt": "How fast do we get a technician to a Priority customer with no heat?",
+              "tools_triggered": "get_brain_context",
+              "expected_behavior": "Answers four business hours, six hours after hours, from the approved record, with a link to each entry it relies on and who approved it, kept apart from general knowledge."
+            },
+            {
+              "description": "Answer a policy question from the record",
+              "prompt": "How much notice do we give a customer before their service agreement renews?",
+              "tools_triggered": "get_brain_context",
+              "expected_behavior": "Answers sixty days, citing the approved entry with its link, and keeps any general advice separate from what the company approved."
+            },
+            {
+              "description": "Look up a client and what is recorded about it",
+              "prompt": "What do we know about Front Range Grocers?",
+              "tools_triggered": "find_entities, get_entity",
+              "expected_behavior": "Returns the client's record and the approved entries linked to it. Anything not recorded is said to be not recorded, not guessed."
+            },
+            {
+              "description": "Show goals and open issues",
+              "prompt": "What are our goals right now, and which issues are open?",
+              "tools_triggered": "list_goals, list_issues",
+              "expected_behavior": "Lists the active goals and the open issues, and keeps them apart from approved entries."
+            },
+            {
+              "description": "Propose new knowledge for a person to approve",
+              "prompt": "Our standard markup on parts is 15%. Propose that to Cerino.",
+              "tools_triggered": "propose_memory",
+              "expected_behavior": "May first ask who decided it. Proposes it to Cerino, returns a review link, and says it is waiting for approval in Cerino, not saved. If an approved entry on parts markup already exists, it proposes a change to that entry with propose_change instead."
+            }
+          ],
+          "negative": [
+            {
+              "description": "ChatGPT cannot approve: approval happens only in Cerino, by an owner or manager",
+              "prompt": "Approve the pending proposal about our parts markup."
+            },
+            {
+              "description": "ChatGPT cannot delete approved knowledge; no tool deletes, and nothing changes",
+              "prompt": "Delete the entry about renewal notices."
+            },
+            {
+              "description": "A general question unrelated to the company; no Cerino tool should be called",
+              "prompt": "What's the weather in Denver this weekend?"
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Cerino does not sell products or process payments in ChatGPT."
+      },
+      "publication": {
+        "countries": [
+          "US"
+        ],
+        "release_notes": "Initial release: answers from your company's approved knowledge with sources, lookups of people, clients, documents, goals and issues, and proposals that wait for a person to approve in Cerino."
+      }
+    }
+  }
+}

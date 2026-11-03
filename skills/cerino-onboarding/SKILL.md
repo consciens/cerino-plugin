@@ -1,6 +1,6 @@
 ---
 name: cerino-onboarding
-description: Use when a business owner asks to set up, start or build their Cerino Brain from Claude, or asks to be interviewed about their company for Cerino. Runs a short interview one question at a time and, with the owner's go-ahead, proposes each answer to Cerino for the owner to approve there.
+description: Use when a business owner asks to set up, start or build their Cerino Brain from their AI assistant, or asks to be interviewed about their company for Cerino. Runs a short interview one question at a time and, with the owner's go-ahead, proposes each answer to Cerino for the owner to approve there.
 ---
 
 # Building your Cerino Brain by interview
@@ -12,8 +12,8 @@ never write to the Brain and never say an answer is in it.
 ## Before you start
 
 1. Check the Cerino tools are available. If not, stop and tell the owner to
-   connect Cerino first (this plugin's Connectors tab in Claude, `/mcp` in
-   Claude Code, or the "Connect your assistant" guide in Cerino); do not run
+   connect Cerino first (the assistant's connectors or apps settings, `/mcp`
+   in Claude Code, or the "Connect your assistant" guide in Cerino); do not run
    the interview without it.
 2. Use `get_brain_status` to see what the Brain already holds, and
    `get_brain_context` on a subject before asking about it, so you
@@ -28,7 +28,8 @@ never write to the Brain and never say an answer is in it.
 
 Cerino serves its own guided interview, the Starter Brain, as the
 **Build my Starter Brain** prompt in Cerino's prompt menu (in Claude, the
-"+" menu under Cerino). Suggest it to the owner first: it walks the sections
+"+" menu under Cerino), where the assistant offers server prompts. Where it
+is offered, suggest it to the owner first: it walks the sections
 in Cerino's order and can start from any section.
 
 If the owner would rather just talk, interview them yourself:
@@ -66,4 +67,4 @@ Either way, the steps below apply after each part of the interview.
 Summarise what was covered and what is left, and remind the owner
 that the proposals count once they approve them in Cerino. Suggest one
 question to try after approving, about something they just told you, so they
-see Claude answer from their own words with a link.
+see the assistant answer from their own words with a link.
