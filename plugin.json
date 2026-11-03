@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cerino",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cerino is your company brain, the human-approved source of truth for how your business operates. Your assistant answers from what your team approved and links each source, proposes new knowledge for a person to approve in Cerino, and shows what is waiting for review.",
   "author": {
     "name": "Cerino",
@@ -65,10 +65,10 @@
               "expected_behavior": "Answers sixty days, citing the approved entry with its link, and keeps any general advice separate from what the company approved."
             },
             {
-              "description": "Look up a client and what is recorded about it",
+              "description": "Answer about a client from the approved record",
               "prompt": "What do we know about Front Range Grocers?",
-              "tools_triggered": "find_entities, get_entity",
-              "expected_behavior": "Returns the client's record and the approved entries linked to it. Anything not recorded is said to be not recorded, not guessed."
+              "tools_triggered": "get_brain_context (ChatGPT may also call find_entities first)",
+              "expected_behavior": "Answers from approved entries with a link to each: our largest account at about $1.1M a year across 9 stores, Margo owns the relationship, and the renewal is due in February. Anything not recorded is said to be not recorded, not guessed."
             },
             {
               "description": "Show goals and open issues",
