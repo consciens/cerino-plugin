@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cerino",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cerino is your company brain, the human-approved source of truth for how your business operates. Your assistant answers from what your team approved and links each source, proposes new knowledge for a person to approve in Cerino, and shows what is waiting for review.",
   "author": {
     "name": "Cerino",
@@ -77,16 +77,16 @@
               "expected_behavior": "Lists the active goals and the open issues, and keeps them apart from approved entries."
             },
             {
-              "description": "Propose new knowledge for a person to approve",
-              "prompt": "Our standard markup on parts is 15%. Propose that to Cerino.",
-              "tools_triggered": "propose_memory",
-              "expected_behavior": "May first ask who decided it. Proposes it to Cerino, returns a review link, and says it is waiting for approval in Cerino, not saved. If an approved entry on parts markup already exists, it proposes a change to that entry with propose_change instead."
+              "description": "Propose a correction to approved knowledge for a person to approve",
+              "prompt": "Our parts markup is going up from 35% to 40% on January 1. Propose that change to Cerino.",
+              "tools_triggered": "get_brain_context, propose_change",
+              "expected_behavior": "Finds the approved entry that parts are marked up 35% and proposes a change to it rather than a second entry. Returns a review link and says the change is waiting for approval in Cerino, not saved, and that the current 35% entry stands until a person approves it."
             }
           ],
           "negative": [
             {
-              "description": "ChatGPT cannot approve: approval happens only in Cerino, by an owner or manager",
-              "prompt": "Approve the pending proposal about our parts markup."
+              "description": "ChatGPT cannot approve anything: proposals are approved only in Cerino, by an owner or manager. It may list what is waiting, then says it cannot approve and points to the Inbox in Cerino",
+              "prompt": "Approve everything waiting in my Cerino Inbox."
             },
             {
               "description": "ChatGPT cannot delete approved knowledge; no tool deletes, and nothing changes",
