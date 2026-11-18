@@ -1,0 +1,37 @@
+name: Bug
+description: Something in the Cerino plugin for Claude or ChatGPT is broken.
+type: Bug
+projects: ["consciens/3"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting. Please don't paste secrets, tokens or anything from your company's Brain.
+  - type: dropdown
+    id: client
+    attributes:
+      label: Where
+      options:
+        - Claude (web or desktop)
+        - Claude Code
+        - ChatGPT
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happens
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should happen
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.

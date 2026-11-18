@@ -1,0 +1,16 @@
+name: Feature request
+description: Something the Cerino plugin should do that it doesn't yet.
+type: Feature
+projects: ["consciens/3"]
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: What you'd be able to do, in a sentence or two.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters
